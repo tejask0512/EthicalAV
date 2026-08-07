@@ -1,0 +1,53 @@
+# KR-AV Ethics Console
+
+Korea-focused Moral Machine successor: a forced-choice AV dilemma platform
+extended with **free-text reasoning + NLP analysis**, so the platform
+captures not just *what* people choose but *why*, structured into
+ethical value-frames (utilitarian, age-based, legal-status, social
+inclusion, etc.).
+
+## Quickstart
+```bash
+pip install -r requirements.txt
+python app.py
+# -> http://localhost:5000
+```
+
+## Structure
+```
+app.py                   # Flask app: auth, routes, API, background insight worker
+scenarios/
+  scenario_engine.py      # Korea-specific dilemma generator + preference-weight scoring
+nlp/
+  insights.py              # Comment sentiment + ethical value-frame tagging + aggregation
+templates/                # Jinja2 templates (dark "traffic console" UI)
+static/css/style.css      # Design system (see tokens at top of file)
+static/js/judge.js        # Client-side dilemma flow
+data/                     # SQLite DBs (users.db, responses.db) + insights cache, gitignored in practice
+docs/BRAINSTORM.md         # Novel-idea backlog for where to take this next
+```
+
+## How it differs from moralmachine.net
+- Localized character set + road contexts for Korea (delivery riders,
+  hagwon shuttle students, senior-center elderly, migrant workers, etc.)
+  — see `scenarios/scenario_engine.py`.
+- Every dilemma optionally collects **free-text reasoning**, analyzed by
+  `nlp/insights.py` into sentiment + keywords + ethical value-frame tags.
+- `/insights` is a public aggregate dashboard of those NLP signals across
+  all respondents (anonymized).
+- `/results` is the per-user Moral-Machine-style "your preferences" page,
+  computed from actual logged judgments.
+
+## NLP pipeline
+Ships with a transparent lexicon/rule-based Korean+English sentiment and
+value-frame tagger (`USE_TRANSFORMERS = False` in `nlp/insights.py`) so the
+app runs with zero heavy dependencies. Swap in a real model by installing
+`konlpy` + `transformers` (e.g. `beomi/KcELECTRA-base` for sentiment,
+`Okt`/`Mecab` for morphological keyword extraction) and flipping that flag —
+the function signature (`analyze_comment(text) -> dict`) doesn't change, so
+nothing else in the app needs to be touched.
+
+## Next steps
+See `docs/BRAINSTORM.md` for a prioritized backlog of novel directions
+(probabilistic harm framing, context-conditioned preference weights,
+deliberation/jury mode, cross-cultural comparison mode, etc.).
