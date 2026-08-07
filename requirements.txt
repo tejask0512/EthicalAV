@@ -1,0 +1,12 @@
+Flask>=3.0
+Werkzeug>=3.0
+pandas
+numpy
+nltk
+
+# Optional — enable for real Korean NLP (flip USE_TRANSFORMERS=True in nlp/insights.py)
+# konlpy
+# transformers
+# torch
+# mecab-python3
+#.e*-
