@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}로그인 · KR-AV Ethics{% endblock %}
+{% block content %}
+<div class="container-narrow">
+  <span class="eyebrow" style="text-align:center;">SIGN IN</span>
+  <h1 style="text-align:center; font-size:30px;">다시 오셨네요</h1>
+  <p style="text-align:center; margin-bottom:28px;">로그인하고 판단을 이어가세요.</p>
+  <div class="card">
+    <form method="POST">
+      <div class="field">
+        <label for="email">이메일</label>
+        <input type="email" id="email" name="email" required autocomplete="email">
+      </div>
+      <div class="field">
+        <label for="password">비밀번호</label>
+        <input type="password" id="password" name="password" required autocomplete="current-password">
+      </div>
+      <button type="submit" class="btn">로그인</button>
+    </form>
+    <div class="form-footnote">
+      계정이 없으신가요? <a href="{{ url_for('register') }}" style="color:var(--teal);">회원가입</a><br>
+      <a href="{{ url_for('guest') }}" style="color:var(--text-muted);">또는 게스트로 체험하기 →</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

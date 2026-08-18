@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}회원가입 · KR-AV Ethics{% endblock %}
+{% block content %}
+<div class="container-narrow">
+  <span class="eyebrow" style="text-align:center;">JOIN THE CONSOLE</span>
+  <h1 style="text-align:center; font-size:30px;">참여하기</h1>
+  <p style="text-align:center; margin-bottom:28px;">당신의 판단이 한국형 자율주행 윤리 기준을 만듭니다.</p>
+  <div class="card">
+    <form method="POST">
+      <div class="field">
+        <label for="username">닉네임</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+      <div class="field">
+        <label for="email">이메일</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="field">
+        <label for="password">비밀번호</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <div class="field">
+        <label for="confirm_password">비밀번호 확인</label>
+        <input type="password" id="confirm_password" name="confirm_password" required>
+      </div>
+      <div class="field">
+        <label for="region">지역 (선택)</label>
+        <select id="region" name="region">
+          <option value="">선택 안 함</option>
+          <option>서울</option><option>부산</option><option>대구</option><option>인천</option>
+          <option>광주</option><option>대전</option><option>울산</option><option>세종</option>
+          <option>경기</option><option>강원</option><option>충북</option><option>충남</option>
+          <option>전북</option><option>전남</option><option>경북</option><option>경남</option><option>제주</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="age_group">연령대 (선택)</label>
+        <select id="age_group" name="age_group">
+          <option value="">선택 안 함</option>
+          <option>10대</option><option>20대</option><option>30대</option>
+          <option>40대</option><option>50대</option><option>60대 이상</option>
+        </select>
+      </div>
+      <button type="submit" class="btn">가입하기</button>
+    </form>
+    <div class="form-footnote">
+      이미 계정이 있으신가요? <a href="{{ url_for('login') }}" style="color:var(--teal);">로그인</a>
+    </div>
+  </div>
+</div>
+{% endblock %}
