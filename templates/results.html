@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}내 판단 결과 · KR-AV Ethics{% endblock %}
+{% block content %}
+<div class="container">
+  <span class="eyebrow">YOUR RESULTS</span>
+  <h2>지금까지 {{ total }}개의 시나리오를 판단했습니다</h2>
+  <p style="margin-bottom:32px;">각 특성을 가진 그룹을 얼마나 자주 '구하는' 쪽으로 선택했는지 보여드립니다. 50%는 중립, 그 이상이면 해당 특성을 우선했다는 뜻입니다.</p>
+
+  {% if total == 0 %}
+    <div class="card">
+      <p>아직 판단 기록이 없습니다. <a href="{{ url_for('judge') }}" style="color:var(--teal);">판단하러 가기 →</a></p>
+    </div>
+  {% else %}
+    <div class="card">
+      {% for tag, value in weights.items() %}
+        {% if value is not none %}
+        <div class="weight-bar-row">
+          <div class="top">
+            <span>{{ tag }}</span>
+            <span style="font-family:var(--font-mono); color:var(--amber);">{{ (value * 100) | round(1) }}%</span>
+          </div>
+          <div class="track"><div class="fill" style="width:{{ (value * 100) | round(1) }}%;"></div></div>
+        </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <div style="text-align:center; margin-top:28px;">
+      <a href="{{ url_for('judge') }}" class="btn" style="width:auto; display:inline-block; padding:14px 28px;">더 판단하기</a>
+    </div>
+  {% endif %}
+</div>
+{% endblock %}

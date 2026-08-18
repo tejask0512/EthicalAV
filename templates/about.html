@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}소개 · KR-AV Ethics{% endblock %}
+{% block content %}
+<div class="container">
+  <span class="eyebrow">WHY THIS EXISTS</span>
+  <h2>Moral Machine을 넘어서</h2>
+  <p style="max-width:700px; margin-bottom:36px;">
+    MIT Media Lab의 Moral Machine은 전 세계 233개국 4천만 건의 판단을 모았지만, 클릭 한 번으로
+    끝나는 강제선택 방식이라 "왜" 그렇게 판단했는지는 알 수 없었고, 한국 도로의 현실
+    (배달 라이더 과밀, 스쿨존, 심야 골목, 이주노동자 등)을 반영하지 않았습니다.
+    이 콘솔은 같은 강제선택 구조 위에 <b>서술형 이유 + NLP 분석</b>을 더해 그 공백을 메웁니다.
+  </p>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <h3>1. 강제선택 (Forced choice)</h3>
+      <p>Path A vs Path B, 둘 중 하나만 구할 수 있는 상황. 한국 도로 맥락의 캐릭터·상황 15+종.</p>
+    </div>
+    <div class="tl-item">
+      <h3>2. 서술형 이유 수집</h3>
+      <p>"왜 그렇게 판단했나요?" — 자유 텍스트로 근거를 남기게 해, 표면적 선택 뒤의 가치관을 드러냅니다.</p>
+    </div>
+    <div class="tl-item">
+      <h3>3. NLP 분석</h3>
+      <p>감정(sentiment), 키워드, 그리고 공리주의/연령주의/합법성/사회적 포용 등 <b>가치 프레임 태깅</b>으로
+      구조화합니다.</p>
+    </div>
+    <div class="tl-item">
+      <h3>4. 집계 인사이트 → AV 정책 신호</h3>
+      <p>익명화된 집계 결과는 AV 의사결정 정책 설계자에게 "한국 사회가 실제로 어떤 근거로
+      우선순위를 정하는가"에 대한 정량+정성 신호를 제공합니다.</p>
+    </div>
+  </div>
+</div>
+{% endblock %}

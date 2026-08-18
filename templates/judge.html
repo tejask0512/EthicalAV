@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}판단하기 · KR-AV Ethics{% endblock %}
+{% block content %}
+<div class="judge-meta">
+  <span class="eyebrow">SCENARIO <span id="scenario-count">1</span></span>
+  <div class="judge-context" id="judge-context">불러오는 중...</div>
+</div>
+
+<div class="split" id="split">
+  <div class="path path-a" id="path-a">
+    <div class="path-label">PATH A</div>
+    <div class="member-list" id="members-a"></div>
+    <button class="choose-btn" data-choice="A">이 경로를 선택 (A를 구함)</button>
+  </div>
+  <div class="divider">
+    <div class="light-stack">
+      <div class="light red"></div>
+      <div class="light amber"></div>
+      <div class="light teal"></div>
+    </div>
+  </div>
+  <div class="path path-b" id="path-b">
+    <div class="path-label">PATH B</div>
+    <div class="member-list" id="members-b"></div>
+    <button class="choose-btn" data-choice="B">이 경로를 선택 (B를 구함)</button>
+  </div>
+</div>
+
+<div class="comment-box" id="comment-box" style="display:none;">
+  <label for="reason" style="font-size:13px; color:var(--text-muted); display:block; margin-bottom:8px;">
+    왜 그렇게 판단하셨나요? 짧게 이유를 적어주시면 저희 NLP 엔진이 분석해 인사이트에 반영합니다.
+  </label>
+  <textarea id="reason" placeholder="예: 아이가 더 위험에 처해있다고 생각했어요 / 무단횡단이면 책임이 다르다고 생각합니다..."></textarea>
+  <div class="comment-actions">
+    <button class="btn-ghost" id="skip-btn">건너뛰기</button>
+    <button class="btn" id="submit-reason-btn">제출하고 다음 →</button>
+  </div>
+</div>
+
+<div style="text-align:center; padding-bottom:60px;">
+  <a href="{{ url_for('results') }}" style="color:var(--text-muted); font-size:13px;">지금까지의 판단 결과 보기 →</a>
+</div>
+
+<script src="{{ url_for('static', filename='js/judge.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}자율주행 윤리 콘솔{% endblock %}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Noto+Sans+KR:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<nav class="topbar">
+  <a href="{{ url_for('mainpage') if session.get('user_id') is not none else url_for('login') }}" class="brand">
+    <span class="brand-mark">●</span> 코리아 AV 윤리 콘솔 <span class="brand-en">KR-AV Ethics</span>
+  </a>
+  <div class="nav-links">
+    {% if session.get('user_id') is defined %}
+      <a href="{{ url_for('judge') }}">판단하기</a>
+      <a href="{{ url_for('insights_dashboard') }}">인사이트</a>
+      <a href="{{ url_for('about') }}">소개</a>
+      <a href="{{ url_for('logout') }}" class="nav-cta">로그아웃</a>
+    {% else %}
+      <a href="{{ url_for('about') }}">소개</a>
+      <a href="{{ url_for('login') }}">로그인</a>
+      <a href="{{ url_for('register') }}" class="nav-cta">회원가입</a>
+    {% endif %}
+  </div>
+</nav>
+
+<div class="flash-wrap">
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="flash flash-{{ category }}">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+</div>
+
+<main>
+{% block content %}{% endblock %}
+</main>
+
+<footer class="footer">
+  <span>KR-AV Ethics Console — 연구·교육 목적의 프로토타입입니다.</span>
+</footer>
+</body>
+</html>
