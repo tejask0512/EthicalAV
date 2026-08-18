@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}KR-AV Ethics Console{% endblock %}
+{% block content %}
+<section class="hero">
+  <span class="eyebrow">SEOUL · BUSAN · DAEGU · ... · A NATIONWIDE HUD</span>
+  <h1>자율주행차가 당신 대신<br>결정을 내려야 한다면?</h1>
+  <p>
+    {{ user_name }}님, 환영합니다. 한국 도로 위 실제 상황(스쿨존, 배달 라이더, 심야 골목)을 바탕으로
+    한 딜레마를 판단하고, 왜 그렇게 판단했는지 직접 말해주세요. 그 이유가 AV 윤리 기준을 만듭니다.
+  </p>
+  <div class="hero-actions">
+    <a href="{{ url_for('judge') }}" class="btn">판단 시작하기 →</a>
+    <a href="{{ url_for('insights_dashboard') }}" class="btn-ghost">인사이트 보기</a>
+  </div>
+
+  <div class="stat-strip">
+    <div class="stat"><div class="num">15+</div><div class="label">한국형 캐릭터 유형</div></div>
+    <div class="stat"><div class="num">NLP</div><div class="label">서술형 이유 분석</div></div>
+    <div class="stat"><div class="num">6</div><div class="label">도로 상황 컨텍스트</div></div>
+  </div>
+</section>
+{% endblock %}
