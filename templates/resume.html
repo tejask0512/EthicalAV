@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}돌아오기 · KR-AV Ethics{% endblock %}
+{% block content %}
+<div class="container-narrow">
+  <span class="eyebrow" style="text-align:center;">RESUME</span>
+  <h1 style="text-align:center; font-size:30px;">복귀 코드로 돌아오기</h1>
+  <p style="text-align:center; margin-bottom:28px;">발급받은 코드를 입력하세요. (예: 고래-3947-바람)</p>
+  <div class="card">
+    <form method="POST">
+      <div class="field">
+        <label for="recovery_code">복귀 코드</label>
+        <input type="text" id="recovery_code" name="recovery_code" required placeholder="고래-3947-바람" autocomplete="off">
+      </div>
+      <button type="submit" class="btn">돌아오기</button>
+    </form>
+    <div class="form-footnote">
+      코드가 없으신가요? <a href="{{ url_for('start') }}" style="color:var(--teal);">새로 시작하기</a><br>
+      <a href="{{ url_for('guest') }}" style="color:var(--text-muted);">또는 완전 익명 게스트로 체험하기 →</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

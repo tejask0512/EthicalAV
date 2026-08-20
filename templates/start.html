@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}시작하기 · KR-AV Ethics{% endblock %}
+{% block content %}
+<div class="container-narrow">
+  <span class="eyebrow" style="text-align:center;">ANONYMOUS BY DESIGN</span>
+  <h1 style="text-align:center; font-size:30px;">참여 시작하기</h1>
+  <p style="text-align:center; margin-bottom:28px;">
+    이름, 이메일을 요구하지 않습니다. 시작하면 무작위 복귀 코드가 발급되며,
+    나중에 그 코드로만 결과를 이어볼 수 있습니다.
+  </p>
+  <div class="card">
+    <form method="POST">
+      <div class="field">
+        <label for="region">지역 (선택, 통계용)</label>
+        <select id="region" name="region">
+          <option value="">선택 안 함</option>
+          <option>서울</option><option>부산</option><option>대구</option><option>인천</option>
+          <option>광주</option><option>대전</option><option>울산</option><option>세종</option>
+          <option>경기</option><option>강원</option><option>충북</option><option>충남</option>
+          <option>전북</option><option>전남</option><option>경북</option><option>경남</option><option>제주</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="age_group">연령대 (선택, 통계용)</label>
+        <select id="age_group" name="age_group">
+          <option value="">선택 안 함</option>
+          <option>10대</option><option>20대</option><option>30대</option>
+          <option>40대</option><option>50대</option><option>60대 이상</option>
+        </select>
+      </div>
+      <button type="submit" class="btn">시작하기</button>
+    </form>
+    <div class="form-footnote">
+      이전에 발급받은 복귀 코드가 있으신가요? <a href="{{ url_for('resume') }}" style="color:var(--teal);">코드로 돌아오기</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

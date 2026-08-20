@@ -10,7 +10,7 @@
 </head>
 <body>
 <nav class="topbar">
-  <a href="{{ url_for('mainpage') if session.get('user_id') is not none else url_for('login') }}" class="brand">
+  <a href="{{ url_for('mainpage') if session.get('user_id') is defined else url_for('start') }}" class="brand">
     <span class="brand-mark">●</span> 코리아 AV 윤리 콘솔 <span class="brand-en">KR-AV Ethics</span>
   </a>
   <div class="nav-links">
@@ -21,8 +21,8 @@
       <a href="{{ url_for('logout') }}" class="nav-cta">로그아웃</a>
     {% else %}
       <a href="{{ url_for('about') }}">소개</a>
-      <a href="{{ url_for('login') }}">로그인</a>
-      <a href="{{ url_for('register') }}" class="nav-cta">회원가입</a>
+      <a href="{{ url_for('resume') }}">코드로 돌아오기</a>
+      <a href="{{ url_for('start') }}" class="nav-cta">시작하기</a>
     {% endif %}
   </div>
 </nav>

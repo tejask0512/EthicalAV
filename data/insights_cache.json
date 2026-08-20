@@ -1,0 +1,60 @@
+{
+  "total_comments": 5,
+  "sentiment_distribution": {
+    "neutral": 5
+  },
+  "top_keywords": [
+    [
+      "위험에",
+      5
+    ],
+    [
+      "처해있다고",
+      3
+    ],
+    [
+      "아이가",
+      2
+    ],
+    [
+      "생각했다",
+      2
+    ],
+    [
+      "처했다고",
+      2
+    ],
+    [
+      "생각한다",
+      2
+    ],
+    [
+      "임산부과",
+      1
+    ],
+    [
+      "학생",
+      1
+    ],
+    [
+      "생각",
+      1
+    ],
+    [
+      "장애인이",
+      1
+    ]
+  ],
+  "value_frame_distribution": {
+    "age_based": 3,
+    "vulnerability": 2
+  },
+  "value_frame_sentiment_crosstab": {
+    "age_based": {
+      "neutral": 3
+    },
+    "vulnerability": {
+      "neutral": 2
+    }
+  }
+}
